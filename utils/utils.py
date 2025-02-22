@@ -1,16 +1,13 @@
-"""
-This module provides utility functions for the Nutrition App, including environment variable loading, image file handling, and a Streamlit sidebar widget for displaying information about the app.
-Functions:
-    load_return_env(variables: List[str]) -> Dict[str, str]:
-        Loads specified environment variables and returns them as a dictionary.
-    input_image_setup(uploaded_file):
-        Processes an uploaded image file and returns its MIME type and raw byte data.
-    about_widget() -> None:
-        Displays an "About" section in the Streamlit sidebar with information about the app.
-Constants:
-    CUSTOM_CSS (str): Custom CSS styles for the Streamlit app.
-"""
-
+# This module provides utility functions for the Nutrition App, including environment variable loading, image file handling, and a Streamlit sidebar widget for displaying information about the app.
+# Functions:
+#     load_return_env(variables: List[str]) -> Dict[str, str]:
+#         Loads specified environment variables and returns them as a dictionary.
+#     input_image_setup(uploaded_file):
+#         Processes an uploaded image file and returns its MIME type and raw byte data.
+#     about_widget() -> None:
+#         Displays an "About" section in the Streamlit sidebar with information about the app.
+# Constants:
+#     CUSTOM_CSS (str): Custom CSS styles for the Streamlit app.
 
 from typing import Dict, List
 import streamlit as st
@@ -25,17 +22,14 @@ def load_return_env(variables: List[str]) -> Dict[str, str]:
 
 def input_image_setup(uploaded_file):
 
-    '''
-    This function checks if the uploaded_file parameter is not None, which means that a file has been uploaded by the user. 
-    If a file has been uploaded, the code proceeds to read the file content into bytes using the getvalue() method of the uploaded_file object. 
-    This method returns the raw bytes of the uploaded file.
+    # This function checks if the uploaded_file parameter is not None, which means that a file has been uploaded by the user. 
+    # If a file has been uploaded, the code proceeds to read the file content into bytes using the getvalue() method of the uploaded_file object. 
+    # This method returns the raw bytes of the uploaded file.
     
-    The bytes data obtained from the uploaded file is stored in a dictionary format under the key-value pair "mime_type" and "data". The "mime_type" key stores the MIME type of the uploaded file, 
-    which indicates the type of content (e.g., image/jpeg, image/png). The "data" key stores the raw bytes of the uploaded file.
-    The image data is then stored in a list named image_parts, which contains a dictionary with the MIME type and data of the uploaded file.
+    # The bytes data obtained from the uploaded file is stored in a dictionary format under the key-value pair "mime_type" and "data". The "mime_type" key stores the MIME type of the uploaded file, 
+    # which indicates the type of content (e.g., image/jpeg, image/png). The "data" key stores the raw bytes of the uploaded file.
+    # The image data is then stored in a list named image_parts, which contains a dictionary with the MIME type and data of the uploaded file.
     
-    '''
-    #check if file has been uploaded
     if uploaded_file is not None:
         #Read the file into bytes
 

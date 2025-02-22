@@ -1,26 +1,22 @@
-"""
-This module provides functionality to analyze food items from an image and calculate their total calories,
-along with detailed nutritional information. It uses Google's Generative AI to process the image and generate
-the required nutritional details.
 
-Functions:
-    get_response(image): Analyzes the food items in the provided image and returns a detailed nutritional report.
+# This module provides functionality to analyze food items from an image and calculate their total calories,
+# along with detailed nutritional information. It uses Google's Generative AI to process the image and generate
+# the required nutritional details.
 
-Constants:
-    GOOGLE_API_KEY: The API key for accessing Google's Generative AI services.
+# Functions:
+#     get_response(image): Analyzes the food items in the provided image and returns a detailed nutritional report.
 
-Dependencies:
-    os: Provides a way of using operating system dependent functionality.
-    google.generativeai: Google's Generative AI library.
-    utils.utils: Custom utility functions, specifically for loading environment variables.
-"""
+# Constants:
+#     GOOGLE_API_KEY: The API key for accessing Google's Generative AI services.
+
+# Dependencies:
+#     os: Provides a way of using operating system dependent functionality.
+#     google.generativeai: Google's Generative AI library.
+#     utils.utils: Custom utility functions, specifically for loading environment variables.
 
 import os
 import google.generativeai as genai 
-
-from utils.utils import (
-    load_return_env
-)
+import streamlit as st
 
 
 input_prompt = """
@@ -36,7 +32,9 @@ input_prompt = """
     If you find that food is not healthy then you must provide some alternative healthy food items that user can have in diet.
 """
 
-GOOGLE_API_KEY = load_return_env(["GOOGLE_API_KEY"])["GOOGLE_API_KEY"]
+#GOOGLE_API_KEY = load_return_env(["GOOGLE_API_KEY"])["GOOGLE_API_KEY"]
+
+GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
