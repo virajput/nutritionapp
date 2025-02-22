@@ -18,6 +18,10 @@ import os
 import google.generativeai as genai 
 import streamlit as st
 
+from utils.utils import (
+    load_return_env
+)
+
 
 input_prompt = """
     You are an expert nutritionist where you need to see the food items from given image and calculate 
@@ -32,9 +36,7 @@ input_prompt = """
     If you find that food is not healthy then you must provide some alternative healthy food items that user can have in diet.
 """
 
-#GOOGLE_API_KEY = load_return_env(["GOOGLE_API_KEY"])["GOOGLE_API_KEY"]
-
-GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+GOOGLE_API_KEY = load_return_env(["GOOGLE_API_KEY"])["GOOGLE_API_KEY"]
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
